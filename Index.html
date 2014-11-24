@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="noindex">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+	<title>Fashion King</title>
+
+	<style>
+		a{color: white;
+		text-decoration: none;}
+		#banner {
+				position: fixed;
+				z-index: 100;
+				top: 0%;
+				left: 0%;
+				background-color: black;
+				color: white;
+				width: 100%;
+				height: 9%;}
+		#story{position: absolute;
+				margin-top: -55px;}
+		#people{position: absolute;
+				margin-top: -55px;}
+		#webtoon{position: absolute;
+				margin-top: -55px;}
+		.same3 {position: absolute;
+				top: 65px;
+				right: 60px;
+				font-size: 3pt;}
+		@media screen and (min-width:301px) and (max-width:500px){
+			.same1 {
+					width: 40%;
+					margin-left: 7%;
+					margin-top: 3%;}
+			.same2 {font-size: 0.9em;
+					margin-left: 10px;}
+			#main_logo {visibility: hidden;}
+			#story{position: absolute;
+				margin-left: 5%;}
+			#people{position: absolute;
+				margin-left: 45%;}
+			#webtoon{position: absolute;
+				margin-left: 75%;}
+			#inner {visibility: hidden;}
+			#logo {margin-top: -1350px;}
+			#logo-1{width: 100%;}
+			#center {margin-top: 0px;}
+			#img_main{width: 85%;}
+			#btn_left {width: 5%;}
+			#btn_right {width: 5%;}
+
+	
+		}
+		@media screen and (min-width:501px) and (max-width:900px){
+			.same1 {width: 20%;
+					margin-left: 2%;
+					margin-top: 3%;}
+			.same2 {font-size: 0.95em;}
+			#story{position: absolute;
+				margin-left: 25%;}
+			#people{position: absolute;
+				margin-left: 55%;}
+			#webtoon{position: absolute;
+				margin-left: 85%;}
+			#inner {margin-top: 100px;}
+			#leftImg{width: 40%;}
+			#rightImg{width: 40%;
+						margin-left: 15%;}
+			#logo {margin-top: -60%;
+					margin-left: 35%;}
+			#logo-1 {width: 55%;}
+			#center {margin-top: 10px;}
+			#img_main{width: 55%;}
+			#btn_left {width: 5%;
+						margin-left: 18%;}
+			#btn_right {width: 5%;}
+
+
+
+		}
+		@media screen and (min-width:901px){
+			
+		
+		#inner {margin-top: 100px;}
+		
+
+		#logo{
+			margin-top: -50%;
+			margin-left: 35%;
+			margin-right: 35%;
+		}
+		#logo-1{
+			width: 100%;}
+		#center {margin-left: 25%;
+				margin-top: 0%;}
+		#img_main{width: 62%;}
+		#leftImg{width: 30%}
+
+		#rightImg {margin-left: 35%;
+			width: 30%;}
+		
+		#thumbnail {margin-top: 5%;
+					margin-left: 5%;
+					margin-right: 5%;}
+
+			.same1 {width: 17%;
+					margin-left: 2%;}
+			.same2 {font-size: 1em;}
+
+		#story{position: absolute;
+				margin-top: -55px;
+				margin-left: 25%;}
+		#people{position: absolute;
+				margin-top: -55px;
+				margin-left: 60%;}
+		#webtoon{position: absolute;
+				margin-top: -55px;
+				margin-left: 85%;}
+		} 
+	</style>
+	<script type="text/javascript">
+
+		var myImg  = new Array(); 
+		var imgNum = 8;			
+		var position = 0;	
+
+		for(var i=0; i<imgNum; i++) {
+			myImg[i] = "img/thumb_" + (i+1) + ".jpg";
+		}
+
+		function changeImg(num) {
+			document.getElementById("img_main").src = myImg[num - 1];
+			position = num;
+		}
+
+		function prev() {
+			position--;
+			if(position < 0) position = myImg.length - 1;
+			document.getElementById("img_main").src = myImg[position];
+		}
+
+		function next() {
+			position++;
+			if(position > myImg.length - 1) position = 0;
+			document.getElementById("img_main").src = myImg[position];
+		}
+
+	</script>
+</head>
+
+
+
+<body background = "img/back.png">
+	<div>
+		
+		<div id ="banner">
+			<a href ="index.html"><img id = "main_logo" src ="img/logo.png" width ="130px"></a>
+			<a class="same2" href ="story.html"><h1 id ="story">스토리</h1></a>
+			<a class="same2" href = "people.html"><h1 id ="people">인물</h1>
+			<a class="same3"><h1 id ="webtoon"><i><u>김,환제작</u></i></h1></a>
+		</div>
+		
+		<div id="inner">
+			<img id="leftImg" src ="img/main_left.png" width ="400px">
+			<img id="rightImg" src ="img/main_right.png" width ="400px">
+		</div>
+		<div id = "logo">
+			<img id="logo-1" src ="img/main_logo.png" width ="400px">
+		</div>
+
+		<div id="center">
+			<img id="btn_left" src="img/btn_left.png" onclick="prev()"/>
+				<img id="img_main" src="img/thumb_1.jpg" width = "580px">
+				<img id="btn_right" src="img/btn_right.png" onclick="next()"/>
+		</div>
+	</div>
+
+	<div id="thumbnail">
+				<img class = "same1" src = "img/thumb_1.jpg" width = "130px" onmouseover="changeImg(1)">
+				<img class = "same1" src = "img/thumb_2.jpg" width = "130px" onmouseover="changeImg(2)">
+				<img class = "same1" src = "img/thumb_3.jpg" width = "130px" onmouseover="changeImg(3)">
+				<img class = "same1" src = "img/thumb_4.jpg" width = "130px" onmouseover="changeImg(4)">
+				<img class = "same1" src = "img/thumb_5.jpg" width = "130px" onmouseover="changeImg(5)">
+				<img class = "same1" src = "img/thumb_6.jpg" width = "130px" onmouseover="changeImg(6)">
+				<img class = "same1" src = "img/thumb_7.jpg" width = "130px" onmouseover="changeImg(7)">
+				<img class = "same1" src = "img/thumb_8.jpg" width = "130px" onmouseover="changeImg(8)">
+	</div>
+</div>
+</body>
+
+</html>
